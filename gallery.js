@@ -1,7 +1,6 @@
 let selectedImage = null;
 
 function upDate(previewPic) {
-    if (selectedImage) return;
     const imageContainer = document.getElementById("image");
     imageContainer.textContent = previewPic.alt;
     imageContainer.style.backgroundImage = `url(${previewPic.src})`;
@@ -9,9 +8,16 @@ function upDate(previewPic) {
 }
 
 function unDo() {
-    if (selectedImage) return;
+    if (selectedImage) {
+        const imageContainer = document.getElementById("image");
+        imageContainer.textContent = selectedImage.alt;
+        imageContainer.style.backgroundImage = `url(${selectedImage.src})`;
+        console.log("Keeping selected image: " + selectedImage.alt);
+        return;
+    }
+
     const imageContainer = document.getElementById("image");
-    imageContainer.querySelector("h2").textContent = imageContainer.getAttribute("data-default-text");
+    imageContainer.textContent = imageContainer.getAttribute("data-default-text");
     imageContainer.style.backgroundImage = "none";
     console.log("Image reset");
 }
