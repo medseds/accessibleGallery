@@ -8,12 +8,11 @@ function upDate(previewPic) {
     console.log("Image updated: " + previewPic.alt);
 }
 
-
 function unDo() {
     if (selectedImage) return;
     const imageContainer = document.getElementById("image");
+    imageContainer.querySelector("h2").textContent = imageContainer.getAttribute("data-default-text");
     imageContainer.style.backgroundImage = "none";
-    imageContainer.textContent = imageContainer.getAttribute("data-default-text");
     console.log("Image reset");
 }
 
