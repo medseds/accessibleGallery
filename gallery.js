@@ -2,29 +2,34 @@ let selectedImage = null;
 
 function upDate(previewPic) {
     const imageContainer = document.getElementById("image");
-    imageContainer.textContent = previewPic.alt;
-    imageContainer.style.backgroundImage = `url(${previewPic.src})`;
-    console.log("Hover preview: " + previewPic.alt);
+    
+    if (!selectedImage || previewPic !== selectedImage) {
+        imageContainer.textContent = previewPic.alt;
+        imageContainer.style.backgroundImage = `url(${previewPic.src})`;
+        console.log("Hover preview: " + previewPic.alt);
+    }
 }
 
 function unDo() {
+    const imageContainer = document.getElementById("image");
+
     if (selectedImage) {
-        const imageContainer = document.getElementById("image");
         imageContainer.textContent = selectedImage.alt;
         imageContainer.style.backgroundImage = `url(${selectedImage.src})`;
         console.log("Restoring selected image: " + selectedImage.alt);
-        return;
+    } else {
+        // If nothing is selected, reset to default
+        imageContainer.textContent = imageContainer.getAttribute("data-default-text");
+        imageContainer.style.backgroundImage = "none";
+        console.log("Image reset to default");
     }
-
-    const imageContainer = document.getElementById("image");
-    imageContainer.textContent = imageContainer.getAttribute("data-default-text");
-    imageContainer.style.backgroundImage = "none";
-    console.log("Image reset to default");
 }
 
 function selectImage(previewPic) {
     selectedImage = previewPic;
     const imageContainer = document.getElementById("image");
+
+    // Lock the selected image
     imageContainer.textContent = previewPic.alt;
     imageContainer.style.backgroundImage = `url(${previewPic.src})`;
     console.log("Image permanently selected: " + previewPic.alt);
