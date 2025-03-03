@@ -10,6 +10,7 @@ function upDate(previewPic) {
 
 
 function unDo() {
+    if (selectedImage) return;
     const imageContainer = document.getElementById("image");
     imageContainer.style.backgroundImage = "none";
     imageContainer.textContent = imageContainer.getAttribute("data-default-text");
