@@ -1,0 +1,39 @@
+body {
+    margin: 2%;
+    border: 1px solid black;
+    background-color: black;
+    text-align: center;
+}
+
+#image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 575px;
+    height: 650px;
+    border: 5px solid white;
+    margin: 0 auto 25px;
+    background-color: #8e68ff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.preview {
+    width: 10%;
+    border: 5px solid white;
+    cursor: pointer;
+    outline: none;
+}
+
+.preview:focus {
+    border-color: yellow;
+}
