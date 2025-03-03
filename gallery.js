@@ -4,7 +4,7 @@ function upDate(previewPic) {
     const imageContainer = document.getElementById("image");
     imageContainer.textContent = previewPic.alt;
     imageContainer.style.backgroundImage = `url(${previewPic.src})`;
-    console.log("Image updated: " + previewPic.alt);
+    console.log("Hover preview: " + previewPic.alt);
 }
 
 function unDo() {
@@ -12,14 +12,14 @@ function unDo() {
         const imageContainer = document.getElementById("image");
         imageContainer.textContent = selectedImage.alt;
         imageContainer.style.backgroundImage = `url(${selectedImage.src})`;
-        console.log("Keeping selected image: " + selectedImage.alt);
+        console.log("Restoring selected image: " + selectedImage.alt);
         return;
     }
 
     const imageContainer = document.getElementById("image");
     imageContainer.textContent = imageContainer.getAttribute("data-default-text");
     imageContainer.style.backgroundImage = "none";
-    console.log("Image reset");
+    console.log("Image reset to default");
 }
 
 function selectImage(previewPic) {
