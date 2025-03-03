@@ -52,10 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
     previews.forEach(preview => {
         preview.addEventListener("mouseover", () => upDate(preview));
         preview.addEventListener("mouseout", unDo);
-        preview.addEventListener("focus", tabFocus);
-        preview.addEventListener("blur", tabBlur);
         preview.addEventListener("click", () => selectImage(preview));
 
+        preview.addEventListener("focus", () => upDate(preview));  
+        preview.addEventListener("blur", unDo);                    
         preview.addEventListener("keydown", (event) => {
             if (event.key === "Enter" || event.key === " ") {
                 selectImage(preview);
