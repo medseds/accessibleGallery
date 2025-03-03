@@ -37,12 +37,18 @@ function tabBlur(event) {
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Page loaded");
     const previews = document.querySelectorAll(".preview");
-    
+
     previews.forEach(preview => {
         preview.addEventListener("mouseover", () => upDate(preview));
         preview.addEventListener("mouseout", unDo);
         preview.addEventListener("focus", tabFocus);
         preview.addEventListener("blur", tabBlur);
         preview.addEventListener("click", () => selectImage(preview));
+
+        preview.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                selectImage(preview);
+            }
+        });
     });
 });
